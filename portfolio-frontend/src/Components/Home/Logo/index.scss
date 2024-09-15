@@ -1,0 +1,44 @@
+#logo-svg {
+  width: 50px;
+  width: 750px;
+  position: absolute;
+  top: 5%;
+  right: 7.5%;
+  bottom: 0;
+  left: auto;
+  margin: auto;
+}
+
+#letter {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 450;
+  fill: none;
+  stroke: var(--color1);
+  stroke-width: 1;
+  animation: drawLetter 5.5s linear forwards;
+}
+
+#shadow {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 450;
+  fill: none;
+  stroke: var(--color1);
+  stroke-width: 1;
+  animation: drawShadow 5s linear forwards;
+}
+
+@keyframes drawLetter {
+  to {
+    stroke: var(--color3);
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawShadow {
+  to {
+    stroke: var(--color4);
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}

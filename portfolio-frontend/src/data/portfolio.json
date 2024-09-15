@@ -1,0 +1,28 @@
+{
+  "portfolio": [
+    {
+      "cover": "gameProject.png",
+      "title": "PostIt - The Reddit Clone",
+      "description": "Angular, Spring Boot, MySQL",
+      "url": "https://github.com/maheenmatin/PostIt"
+    },
+    {
+      "cover": "portfolioProject.png",
+      "title": "Personal Portfolio Website",
+      "description": "React, JavaScript, SCSS",
+      "url": "https://github.com/maheenmatin/Portfolio"
+    },
+    {
+      "cover": "gameProject.png",
+      "title": "Where Am I?",
+      "description": "Java, Swing, JBox2D",
+      "url": "https://github.com/maheenmatin/WhereAmI"
+    },
+    {
+      "cover": "portfolioProject.png",
+      "title": "Project 4",
+      "description": "Java",
+      "url": "https://github.com/maheenmatin"
+    }
+  ]
+}

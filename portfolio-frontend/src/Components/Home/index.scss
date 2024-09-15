@@ -1,0 +1,80 @@
+.home-page {
+  .text-zone {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    max-height: 90%;
+  }
+
+  h1 {
+    color: var(--color5);
+    font-size: var(--heading-size);
+    line-height: var(--heading-size);
+    margin: 0;
+    font-family: "Coolvetica";
+    font-weight: 400;
+
+    &:before {
+      content: "<h1>";
+      font-family: "La Belle Aurore", cursive;
+      color: var(--color2);
+      font-size: var(--tag-size);
+      position: absolute;
+      margin-top: -40px;
+      left: -15px;
+    }
+
+    &:after {
+      content: "</h1>";
+      font-family: "La Belle Aurore", cursive;
+      color: var(--color2);
+      font-size: var(--tag-size);
+      position: absolute;
+      margin-top: 18px;
+      margin-left: 20px;
+      animation: fadeIn 1s 1.7s backwards;
+    }
+
+    img {
+      margin-left: 20px;
+      margin-bottom: -25px;
+      opacity: 0;
+      width: 110px;
+      height: auto;
+      animation: rotateIn 0.25s linear both;
+      animation-delay: 2.75s;
+    }
+  }
+
+  h2 {
+    color: var(--color3);
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+    animation: fadeIn 1.5s 1.8s backwards;
+  }
+
+  .flat-button {
+    color: var(--color4);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid var(--color4);
+    margin-top: 25px;
+    float: left;
+    animation: fadeInAnimation 1s 1.8s backwards;
+    white-space: nowrap;
+
+    &:hover {
+      background: var(--color4);
+      color: var(--color1);
+    }
+  }
+}

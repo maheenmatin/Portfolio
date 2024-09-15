@@ -1,0 +1,74 @@
+$primary-color: #f55766; // used for loader
+
+@import "animate.css";
+@import "~loaders.css/src/animations/pacman.scss";
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./assets/fonts/helvetica-neu.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "La Belle Aurore";
+  src: url("./assets/fonts/LaBelleAurore.woff2") format("woff2"),
+    url("./assets/fonts/LaBelleAurore.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Coolvetica";
+  src: url("./assets/fonts/CoolveticaRg-Regular.woff2") format("woff2"),
+    url("./assets/fonts/CoolveticaRg-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color1: #080b1c;
+  --color2: #fd8c2d;
+  --color3: #f55766;
+  --color4: #324ed6;
+  --color5: #ffffff;
+  --color6: #000000;
+
+  --heading-size: 85px;
+  --sidebar-width: 70px;
+  --tag-size: 20px;
+
+  -webkit-touch-callout: none; // iOS Safari
+  -webkit-user-select: none; // Safari
+  -khtml-user-select: none; // Konqueror HTML
+  -moz-user-select: none; // Old versions of Firefox
+  -ms-user-select: none; // Internet Explorer/Edge
+  user-select: none; // Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+textarea {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: block;
+  position: absolute;
+  left: var(--sidebar-width);
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  animation: fadeOut 0.25s 0.75s;
+  animation-fill-mode: forwards;
+}
