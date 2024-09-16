@@ -10,7 +10,7 @@ const Home = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const introArray = ["I", "'", "m"];
   const nameArray = ["a", "h", "e", "e", "n", ","];
-  const jobArray = ["c", "o", "m", "p", " ", " ", "s", "c", "i", " ", " ", "s", "t", "u", "d", "e", "n", "t", "."];
+  const jobArray = ["c", "o", "m", "p", " ", " ", "s", "c", "i", " ", " ", "s", "t", "u", "d", "e", "n", "t"];
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,6 +32,7 @@ const Home = () => {
             <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={25} />
             <br />
             <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={28} />
+            <span id="colored-letter-home" className={letterClass}>.</span>
           </h1>
           <h2>Software Engineering / Web Development / All Things Tech</h2>
           <Link to="/contact" className="flat-button">

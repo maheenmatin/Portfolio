@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import AnimatedLetters from "../AnimatedLetters";
@@ -16,6 +17,11 @@ const Contact = () => {
       setLetterClass("text-animate-hover");
     }, 3000);
   }, []);
+
+  const customIcon = new Icon({
+    iconUrl: require("../../assets/images/mapIcon.png"),
+    iconSize: [50, 50]
+  })
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -36,17 +42,24 @@ const Contact = () => {
       <div className="container contact-page">
         <div className="text-zone">
           <h1>
+            <span id="colored-letter-contact" className={letterClass}>
+              C
+            </span>
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={["C", "o", "n", "t", "a", "c", "t", " ", "m", "e"]}
+              strArray={["o", "n", "t", "a", "c", "t", " ", " ", "m"]}
               idx={15}
             />
+            <span id="colored-letter-contact" className={letterClass}>
+              e
+            </span>
           </h1>
+
           <p>
-            I am interested in freelance opportunities - especially on ambitious or large projects.
-            However, if you have any other requests or questions, don't hesitate to contact me using
-            below form either.
+            Feel free to reach out with any professional enquiries! I am particularly interested in internship
+            opportunities for software engineering. <span class="colored-text">Let's connect!</span>
           </p>
+
           <div className="contact-form">
             <form ref={form} onSubmit={sendEmail}>
               <ul>
@@ -69,26 +82,20 @@ const Contact = () => {
             </form>
           </div>
         </div>
+
         <div className="info-map">
-          Name,
-          <br />
-          Country,
-          <br />
-          Address Line 1 <br />
-          Address Line 2 <br />
-          <br />
-          <span>test123@gmail.com</span>
+          City, University of London <br />
+          Northampton Square <br />
+          London <br />
+          EC1V 0HB
         </div>
 
         <div className="map-wrap">
-          <MapContainer center={[51.5280, 0.1025]} zoom={13} scrollWheelZoom={true}>
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[51.5280, 0.1025]}>
-              <Popup>
-                Maheen studies here!
-              </Popup>
+          <MapContainer center={[51.527264, -0.10247]} zoom={16} scrollWheelZoom={true}>
+          <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <Marker position={[51.527264, -0.10247]} icon={customIcon}>
+              <Popup><div id="popup">Maheen studies here!</div></Popup>
             </Marker>
           </MapContainer>
         </div>

@@ -10,7 +10,7 @@ const Portfolio = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLetterClass("text-animate-hover");
-    }, 2800);
+    }, 2500);
 
     return () => {
       clearTimeout(timer);
@@ -42,7 +42,9 @@ const Portfolio = () => {
     <>
       <div className="container container-portfolio">
         <h1>
-          <AnimatedLetters letterClass={letterClass} strArray={"Projects".split("")} idx={10} />
+          <span id="colored-letter-port" className={letterClass}>P</span>
+          <AnimatedLetters letterClass={letterClass} strArray={"roject".split("")} idx={10} />
+          <span id="colored-letter-port" className={letterClass}>s</span>
         </h1>
         <div>{renderPortfolio(portfolioData.portfolio)}</div>
       </div>

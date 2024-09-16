@@ -11,7 +11,7 @@ $icon-size: 35px;
 
   .logo {
     display: block;
-    margin-top: 5px;
+    margin-top: 15px;
     padding: 5px 0;
 
     img {
@@ -43,7 +43,7 @@ $icon-size: 35px;
       height: 51px;
       position: relative;
       text-decoration: none;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
 
       svg {
         color: var(--color1);
@@ -123,11 +123,12 @@ $icon-size: 35px;
 
     li {
       a {
-        margin-top: 30px;
+        margin-top: 16px;
         display: block;
         font-size: $icon-size;
-        line-height: 16px;
-        color: #080b1c;
+        line-height: 51px;
+        height: 51px;
+        color: var(--color1);
       }
 
       &:hover {

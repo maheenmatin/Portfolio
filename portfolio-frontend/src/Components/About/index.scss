@@ -16,7 +16,7 @@
 
   h1 {
     font-size: var(--heading-size);
-    font-family: "Coolvetica";
+    font-family: "Coolvetica", sans-serif;
     color: var(--color4);
     font-weight: 400;
     padding-left: 150px;
@@ -73,6 +73,7 @@
     color: var(--color5);
     font-family: "Coolvetica", sans-serif;
     font-weight: 100;
+    letter-spacing: 0.5px;
     
     animation: pulse 1.5s;
     &:nth-of-type(1) {
@@ -92,7 +93,7 @@
 
   .text-animate-hover {
     &:hover {
-      color: var(--color2);
+      color: var(--color3);
     }
   }
 }
@@ -103,10 +104,11 @@
   position: absolute;
   bottom: 0;
   font-size: 25px;
-  //letter-spacing: 0.05cm;
-  color: var(--color2);
+  line-height: 30px;
+  color: var(--color4);
   font-family: "Coolvetica", sans-serif;
   font-weight: 100;
+  letter-spacing: 0.5px;
 }
 
 .stage-cube-cont {
@@ -188,4 +190,8 @@
   83% {
     transform: rotateX(90deg);
   }
+}
+
+#colored-letter-about {
+  color: var(--color3);
 }

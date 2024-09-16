@@ -11,7 +11,7 @@ const About = () => {
   useEffect(() => {
     setTimeout(() => {
       setLetterClass("text-animate-hover");
-    }, 2800);
+    }, 2500);
   }, []);
 
   return (
@@ -19,7 +19,9 @@ const About = () => {
       <div className="container container-about">
         <div class="left-section">
           <h1>
-            <AnimatedLetters letterClass={letterClass} strArray={["A", "b", "o", "u", "t", " ", " ", "m", "e"]} idx={10} />
+            <span id="colored-letter-about" className={letterClass}>A</span>
+            <AnimatedLetters letterClass={letterClass} strArray={["b", "o", "u", "t", " ", " ", "m"]} idx={10} />
+            <span id="colored-letter-about" className={letterClass} >e</span>
           </h1>
 
           <div className="text-zone">
@@ -79,7 +81,9 @@ const About = () => {
               <FontAwesomeIcon icon={faGitAlt} color="#EC4D28" />
             </div>
           </div>
-          <div id="subtitle"><p>These are some of the web technologies I'm proficient in!</p></div>
+          <div id="subtitle"><p>These are some of the <span class="colored-text">web technologies </span>
+            I'm proficient in!</p>
+          </div>
         </div>
       </div>
       <Loader type="pacman" />
