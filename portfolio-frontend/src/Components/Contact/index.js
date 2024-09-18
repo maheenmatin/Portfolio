@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 import "leaflet/dist/leaflet.css";
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const form = useRef();
+  const [nameValue, setNameValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
+  const [subjectValue, setSubjectValue] = useState("");
+  const [messageValue, setMessageValue] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,21 +22,26 @@ const Contact = () => {
 
   const customIcon = new Icon({
     iconUrl: require("../../assets/images/mapIcon.png"),
-    iconSize: [50, 50]
-  })
+    iconSize: [50, 50],
+  });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const sendMailChimpData = () => {
+    const formData = {
+      EMAIL: emailValue,
+      NAME: nameValue,
+      SUBJECT: subjectValue,
+      MESSAGE: messageValue,
+    };
 
-    emailjs.sendForm("gmail", "template_YeJhZkgb", form.current, "your-token").then(
-      () => {
-        alert("Message successfully sent!");
-        window.location.reload(false);
-      },
-      () => {
-        alert("Failed to send the message, please try again");
-      }
-    );
+    function queryString(data) {
+      return Object.keys(data)
+        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join("&");
+    }
+
+    const dataToAppend = queryString(formData);
+
+    return `https://mailchimp-form-url${dataToAppend}`;
   };
 
   return (
@@ -61,22 +68,49 @@ const Contact = () => {
           </p>
 
           <div className="contact-form">
-            <form ref={form} onSubmit={sendEmail}>
+            <form action={sendMailChimpData()} method="POST" noValidate target="_blank">
               <ul>
                 <li className="half">
-                  <input placeholder="Name" type="text" name="name" required />
+                  <input
+                    value={nameValue}
+                    onChange={(e) => setNameValue(e.target.value)}
+                    placeholder="Name"
+                    type="text"
+                    name="name"
+                    required
+                  />
                 </li>
                 <li className="half">
-                  <input placeholder="Email" type="email" name="email" required />
+                  <input
+                    value={emailValue}
+                    onChange={(e) => setEmailValue(e.target.value)}
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    required
+                  />
                 </li>
                 <li>
-                  <input placeholder="Subject" type="text" name="subject" required />
+                  <input
+                    value={subjectValue}
+                    onChange={(e) => setSubjectValue(e.target.value)}
+                    placeholder="Subject"
+                    type="text"
+                    name="subject"
+                    required
+                  />
                 </li>
                 <li>
-                  <textarea placeholder="Message" name="message" required></textarea>
+                  <textarea
+                    value={messageValue}
+                    onChange={(e) => setMessageValue(e.target.value)}
+                    placeholder="Message"
+                    name="message"
+                    required
+                  ></textarea>
                 </li>
                 <li>
-                  <input type="submit" className="flat-button" value="SEND" />
+                  <input type="submit" className="flat-button" value="SEND VIA MAILCHIMP" />
                 </li>
               </ul>
             </form>
@@ -92,10 +126,14 @@ const Contact = () => {
 
         <div className="map-wrap">
           <MapContainer center={[51.527264, -0.10247]} zoom={16} scrollWheelZoom={true}>
-          <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
             <Marker position={[51.527264, -0.10247]} icon={customIcon}>
-              <Popup><div id="popup">Maheen studies here!</div></Popup>
+              <Popup>
+                <div id="popup">Maheen studies here!</div>
+              </Popup>
             </Marker>
           </MapContainer>
         </div>

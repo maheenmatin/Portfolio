@@ -42,8 +42,8 @@ const About = () => {
               </svg>
               <p>
                 With two internships under my belt, I've gained valuable knowledge and experience in both
-                <span class="colored-text"> web development</span> (Figma, HTML & CSS), and 
-                <span class="colored-text"> data science</span> (R & Python).
+                <span class="colored-text"> web development</span> (Figma, JavaScript, Mailchimp), and 
+                <span class="colored-text"> quantitative research</span> (R, Python).
               </p>
             </div>
 
