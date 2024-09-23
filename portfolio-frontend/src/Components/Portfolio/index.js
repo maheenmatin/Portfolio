@@ -28,7 +28,7 @@ const Portfolio = () => {
                 <p className="title">{port.title}</p>
                 <h4 className="description">{port.description}</h4>
                 <button className="btn" onClick={() => window.open(port.url)}>
-                  View
+                  VIEW
                 </button>
               </div>
             </div>
@@ -40,11 +40,11 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className="container container-portfolio">
+      <div className="container" id="portfolio-container">
         <h1>
-          <span id="colored-letter-port" className={letterClass}>P</span>
+          <span className={`${letterClass} port-colored-text`}>P</span>
           <AnimatedLetters letterClass={letterClass} strArray={"roject".split("")} idx={10} />
-          <span id="colored-letter-port" className={letterClass}>s</span>
+          <span className={`${letterClass} port-colored-text`}>s</span>
         </h1>
         <div>{renderPortfolio(portfolioData.portfolio)}</div>
       </div>

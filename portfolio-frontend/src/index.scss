@@ -1,0 +1,83 @@
+@import "animate.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--color1);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  // Color Palette
+  --color1: #080b1c;
+  --color2: #fd8c2d;
+  --color3: #f55766;
+  --color4: #324ed6;
+  --color5: #ffffff;
+  --color6: #000000;
+
+  --heading-size: 85px;
+  --sidebar-width: 70px;
+  --tag-size: 20px;
+
+  // make text non-highlightable (excludes forms)
+  -webkit-touch-callout: none; // iOS Safari
+  -webkit-user-select: none; // Safari
+  -khtml-user-select: none; // Konqueror HTML
+  -moz-user-select: none; // old Firefox
+  -ms-user-select: none; // IE, Edge
+  user-select: none; // Chrome, Firefox, Opera
+}
+
+// Fonts
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./assets/fonts/helvetica-neu.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "La Belle Aurore";
+  src: url("./assets/fonts/LaBelleAurore.woff2") format("woff2"),
+    url("./assets/fonts/LaBelleAurore.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Coolvetica";
+  src: url("./assets/fonts/CoolveticaRg-Regular.woff2") format("woff2"),
+    url("./assets/fonts/CoolveticaRg-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Pac-Man Loader
+$primary-color: #f55766;
+@import "~loaders.css/src/animations/pacman.scss";
+
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  animation: fadeOut 0.25s 0.75s;
+  animation-fill-mode: forwards;
+}

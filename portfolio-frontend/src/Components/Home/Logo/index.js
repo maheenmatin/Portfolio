@@ -1,10 +1,6 @@
-import { useEffect, useRef } from "react";
 import "./index.scss";
 
 const Logo = () => {
-  const bgRef = useRef();
-  const outlineLogoRef = useRef();
-  const solidLogoRef = useRef();
 
   return (
     <div>

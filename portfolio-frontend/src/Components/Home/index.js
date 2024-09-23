@@ -15,12 +15,12 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setLetterClass("text-animate-hover");
-    }, 5000);
+    }, 5500);
   }, []);
 
   return (
     <>
-      <div className="container home-page">
+      <div className="container home-container">
         <div className="text-zone">
           <h1>
             <span className={letterClass}>H</span>

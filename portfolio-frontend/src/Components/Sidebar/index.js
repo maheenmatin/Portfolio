@@ -1,12 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import "./index.scss";
 import Logo from "../../assets/images/logo.png";
 import LogoSub from "../../assets/images/sub.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUser, faEnvelope, faSuitcase } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser, faEnvelope, faSuitcase, faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Sidebar = () => {
+  const [showNav, setShowNav] = useState(false);
+
   function refreshPage() {
     // if on home page, refresh page - else, display home page
     if (window.location.pathname === "/") {
@@ -16,38 +19,43 @@ const Sidebar = () => {
 
   return (
     <div className="nav-container">
-      <Link className="logo" to="/" >
-        <img src={Logo} alt="logo" onClick={ (refreshPage) } />
-        <img className="sub-logo" src={LogoSub} alt="logo 2" onClick={ refreshPage }/>
+      <Link className="logo" to="/">
+        <img
+          src={Logo}
+          alt="logo"
+          onClick={() => {
+            refreshPage();
+            setShowNav(false);
+          }}
+        />
+        <img className="logo-subtitle" src={LogoSub} alt="logo subtitle" onClick={refreshPage} />
       </Link>
 
-      <nav>
-        <NavLink activeclassname="active" to="/">
+      <nav nav className={showNav ? "mobile-show" : ""}>
+        <NavLink activeclassname="active" to="/" onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faHome} />
         </NavLink>
-        <NavLink activeclassname="active" className="about-link" to="/about">
+        <NavLink activeclassname="active" className="about-link" to="/about" onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faUser} />
         </NavLink>
-        <NavLink activeclassname="active" className="portfolio-link" to="/projects">
+        <NavLink activeclassname="active" className="projects-link" to="/projects" onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faSuitcase} />
         </NavLink>
-        <NavLink activeclassname="active" className="contact-link" to="/contact">
+        <NavLink activeclassname="active" className="contact-link" to="/contact" onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faEnvelope} />
         </NavLink>
+        <FontAwesomeIcon onClick={() => setShowNav(false)} icon={faClose} size="3x" className="close-icon" />
       </nav>
 
-      <ul>
-        <li>
-          <a href="https://github.com/maheenmatin" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faGithub} className="anchor-icon" />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/maheenmatin" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} className="anchor-icon" />
-          </a>
-        </li>
-      </ul>
+      <div className="external-links">
+        <a href="https://github.com/maheenmatin" target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faGithub} className="anchor-icon" />
+        </a>
+        <a href="https://www.linkedin.com/in/maheenmatin" target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faLinkedin} className="anchor-icon" />
+        </a>
+      </div>
+      <FontAwesomeIcon onClick={() => setShowNav(true)} icon={faBars} size="3x" className="hamburger-icon" />
     </div>
   );
 };

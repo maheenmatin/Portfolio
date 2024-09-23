@@ -17,11 +17,11 @@ const Contact = () => {
   useEffect(() => {
     setTimeout(() => {
       setLetterClass("text-animate-hover");
-    }, 3000);
+    }, 4000);
   }, []);
 
   const customIcon = new Icon({
-    iconUrl: require("../../assets/images/mapIcon.png"),
+    iconUrl: require("../../assets/images/mapIcon.png"), //will not work without require
     iconSize: [50, 50],
   });
 
@@ -40,31 +40,29 @@ const Contact = () => {
     }
 
     const dataToAppend = queryString(formData);
+    const mailChimpLink =
+      "https://gmail.us14.list-manage.com/subscribe/post?u=f933c7739d247bac358c32b6b&amp;id=34f017647d&amp;f_id=003e4fe5f0&";
 
-    return `https://mailchimp-form-url${dataToAppend}`;
+    return `${mailChimpLink}${dataToAppend}`;
   };
 
   return (
     <>
-      <div className="container contact-page">
+      <div className="container" id="contact-container">
         <div className="text-zone">
           <h1>
-            <span id="colored-letter-contact" className={letterClass}>
-              C
-            </span>
+            <span className={`${letterClass} colored-letter`}>C</span>
             <AnimatedLetters
               letterClass={letterClass}
               strArray={["o", "n", "t", "a", "c", "t", " ", " ", "m"]}
               idx={15}
             />
-            <span id="colored-letter-contact" className={letterClass}>
-              e
-            </span>
+            <span className={`${letterClass} colored-letter`}>e</span>
           </h1>
 
           <p>
             Feel free to reach out with any professional enquiries! I am particularly interested in internship
-            opportunities for software engineering. <span class="colored-text">Let's connect!</span>
+            opportunities for software engineering. <span class="contact-colored-text">Let's connect!</span>
           </p>
 
           <div className="contact-form">

@@ -1,60 +1,79 @@
-$icon-size: 35px;
+$nav-color: var(--color3);
+$icon-size: 37px;
+$icon-color: var(--color1);
+$icon-active-color: var(--color5);
+
+@mixin icon-text($text) {
+  &:after {
+    content: $text;
+  }
+}
+
+.nav-container,
+nav,
+.external-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 17px;
+
+  svg {
+    color: $icon-color;
+  }
+}
+
+nav a,
+.external-links a {
+  height: 50px;
+  font-size: $icon-size;
+  color: $icon-color;
+}
 
 .nav-container {
-  background: var(--color3);
-  width: var(--sidebar-width);
-  height: 100%;
+  justify-content: space-between;
   position: absolute;
   top: 0;
   z-index: 3;
-  min-height: 500px;
+  height: 100%;
+  min-height: fit-content;
+
+  background: $nav-color;
+  width: var(--sidebar-width);
 
   .logo {
     display: block;
-    margin-top: 15px;
-    padding: 5px 0;
+    margin-top: 20px;
 
     img {
       display: block;
-      margin: 8px auto;
+      margin: 0 auto;
       width: 85%;
-      height: auto;
 
-      &.sub-logo {
-        width: 85%;
+      &.logo-subtitle {
+        margin-top: 2px;
       }
     }
   }
 
   nav {
-    display: block;
-    text-align: center;
     position: absolute;
-    height: 210px;
-    top: 50%;
-    margin-top: -120px;
-    width: 100%;
-
+    inset: 50% 0 0 50%;
+    transform: translate(-50%, -50%);
     a {
-      font-size: $icon-size;
-      font-weight: bold;
-      display: block;
-      line-height: 51px;
-      height: 51px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font: bold $icon-size "Helvetica Neue", sans-serif;
+      line-height: 50px;
       position: relative;
       text-decoration: none;
-      margin-bottom: 16px;
-
-      svg {
-        color: var(--color1);
-      }
 
       i {
-        transition: all 0.3s ease-out;
+        transition: all 0.33s ease-out;
       }
 
       &:hover {
-        color: var(--color5);
+        color: $icon-active-color;
 
         svg {
           opacity: 0;
@@ -71,75 +90,54 @@ $icon-size: 35px;
         letter-spacing: 2px;
         position: absolute;
         bottom: 0;
-        display: block;
-        width: 100%;
         text-align: center;
         opacity: 0;
-        -webkit-transition: all 0.3s ease-out;
         transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
       }
 
       &:first-child {
-        &:after {
-          content: "HOME";
-        }
+        @include icon-text("HOME");
       }
     }
 
     a.about-link {
-      &:after {
-        content: "ABOUT";
-      }
+      @include icon-text("ABOUT");
+    }
+
+    a.projects-link {
+      @include icon-text("PROJECTS");
     }
 
     a.contact-link {
-      &:after {
-        content: "CONTACT";
-      }
-    }
-
-    a.portfolio-link {
-      &:after {
-        content: "PROJECTS";
-      }
+      @include icon-text("CONTACT");
     }
 
     a.active {
       svg {
-        color: var(--color5);
+        color: $icon-active-color;
       }
     }
   }
 
-  ul {
-    position: absolute;
-    bottom: 25px;
-    width: 100%;
-    display: block;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-    margin: 0;
+  .external-links {
+    align-items: center;
+    margin-bottom: 20px;
 
-    li {
-      a {
-        margin-top: 16px;
-        display: block;
-        font-size: $icon-size;
-        line-height: 51px;
-        height: 51px;
-        color: var(--color1);
-      }
+    a {
+      line-height: 50px;
 
       &:hover {
         .anchor-icon {
-          color: var(--color5);
+          color: $icon-active-color;
         }
-      }
-
-      svg {
-        color: var(--color1);
       }
     }
   }
+}
+
+.hamburger-icon,
+.close-icon {
+  display: none;
+  color: var(--color5);
 }
