@@ -42,8 +42,7 @@
   margin: 0 auto;
   z-index: 1;
   transform-style: preserve-3d;
-  animation: fadeIn 1s forwards;
-  animation-delay: 1s;
+  animation: fadeIn 1s 1s forwards;
 
   .text-zone {
     position: absolute;

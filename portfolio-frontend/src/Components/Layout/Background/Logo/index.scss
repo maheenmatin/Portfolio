@@ -1,0 +1,13 @@
+.bg-logo {
+  width: 100%;
+  position: absolute;
+  inset: 0 0 0 0;
+  margin: auto;
+
+  .bg-logo-letter,
+  .bg-logo-shadow {
+    fill: none;
+    stroke: var(--color5);
+    stroke-width: 1;
+  }
+}

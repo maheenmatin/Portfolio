@@ -1,4 +1,5 @@
 import Sidebar from "../Sidebar";
+import Background from "./Background";
 import "./index.scss";
 import { Outlet } from "react-router-dom";
 
@@ -7,6 +8,7 @@ const Layout = () => {
     <div>
       <Sidebar />
       <div className="page">
+        <Background />
         <span className="tags top-tag-body">&lt;body&gt;</span>
         <Outlet />
         <span className="tags bottom-tag-body">&lt;/body&gt;</span>
