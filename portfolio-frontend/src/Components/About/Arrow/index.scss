@@ -4,3 +4,9 @@
   flex: none;
   width: 50px;
 }
+
+@media screen and (max-width: 1200px) {
+  .arrow {
+    width: 33px;
+  }
+}

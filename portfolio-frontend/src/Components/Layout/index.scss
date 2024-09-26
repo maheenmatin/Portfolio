@@ -1,7 +1,7 @@
 @mixin tag-styles {
   position: absolute;
   color: var(--color2);
-  font-size: var(--tag-size);
+  font-size: 20px;
   font-family: "La Belle Aurore", cursive;
 }
 
@@ -53,10 +53,7 @@
   }
 
   h1 {
-    font-size: var(--heading-size);
-    line-height: var(--heading-size);
-    font-family: "Coolvetica";
-    font-weight: 400;
+    font: 400 85px/85px "Coolvetica";
     white-space: nowrap;
 
     &:before {
@@ -73,5 +70,82 @@
       margin-top: 30px;
       animation: fadeIn 1s 0.5s backwards;
     }
+  }
+}
+
+// Mobile
+@media screen and (max-width: 1200px) {
+  .page {
+    position: relative;
+    width: 100%;
+    min-height: calc((var(--vh, 1vh) * 100) - var(--sidebar-height));
+    top: var(--sidebar-height);
+  }
+
+  .page.home {
+    height: calc((var(--vh, 1vh) * 100) - var(--sidebar-height));
+  }
+
+  .page.show-nav {
+    display: none;
+  }
+
+  .tags {
+    font-size: 12px;
+    left: 10px;
+  }
+  
+  .top-tag-body {
+    top: 2px;
+  }
+  
+  .bottom-tag-body {
+    bottom: 20px;
+  }
+  
+  .bottom-tag-html {
+    bottom: 2px;
+    margin-left: -5px;
+  }
+
+  .container {
+    position: initial;
+    top: 0;
+    height: 100%;
+    transform: initial;
+    padding: 15% 0 10% 0;
+
+    .text-zone {
+      position: relative;
+      inset: initial;
+      transform: initial;
+      width: 90%;
+      margin: 0 auto;
+      //border: 1px solid white;
+    }
+
+    h1 {
+      font: 400 60px/60px "Coolvetica";
+
+      &:before {
+        font-size: 12px;
+        left: -15px;
+        margin-top: -30px;
+      }
+  
+      &:after {
+        font-size: 12px;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  .container {
+    padding: 7.5% 0 5% 0;
+  }
+  .page.home {
+    height: fit-content;
   }
 }

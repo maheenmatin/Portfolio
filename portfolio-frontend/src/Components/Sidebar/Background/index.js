@@ -2,12 +2,12 @@ import "./index.scss";
 import Logo from "./Logo";
 
 const Background = () => {
-  const logoIds = Array.from({ length: 8 }, (_, i) => i + 1);
+  const logoIds = Array.from({ length: 3 }, (_, i) => i + 1);
 
   return (
-    <div id="background-container">
+    <div id="sidebar-bg-container">
       {logoIds.map((id) => (
-        <div key={id} id={`logo${id}`}>
+        <div key={id} id={`sbglogo${id}`}>
           <Logo />
         </div>
       ))}

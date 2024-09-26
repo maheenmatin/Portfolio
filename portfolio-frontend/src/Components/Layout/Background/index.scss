@@ -1,10 +1,10 @@
 @mixin logoStyles($size, $rotation, $x-offset, $y-offset) {
-    position: absolute;
-    inset: $x-offset 0 0 $y-offset;
-    width: $size;
-    height: $size;
-    transform: rotate($rotation); 
-    opacity: 0.1;
+  position: absolute;
+  inset: $x-offset 0 0 $y-offset;
+  width: $size;
+  height: $size;
+  transform: rotate($rotation);
+  opacity: 0.1;
 }
 
 #background-container {
@@ -15,18 +15,56 @@
 }
 
 #logo1 {
-    @include logoStyles(500px, 15deg, 10px, 10px);
-    margin: -150px 0 0 -320px;
+  @include logoStyles(500px, 15deg, 10px, 10px);
+  margin: -150px 0 0 -320px;
 }
 
 #logo2 {
-    @include logoStyles(333px, -33deg, 25%, 5%);
+  @include logoStyles(333px, -33deg, 25%, 5%);
 }
 
 #logo3 {
-    @include logoStyles(300px, -175deg, 75%, 15%);
+  @include logoStyles(300px, -175deg, 75%, 15%);
 }
 
 #logo4 {
-    @include logoStyles(300px, 15deg, 85%, 80%);
+  @include logoStyles(300px, -210deg, 10px, 33%);
+  margin-top: -250px;
+}
+
+#logo5 {
+  @include logoStyles(300px, 15deg, 85%, 80%);
+}
+
+#logo6 {
+  @include logoStyles(400px, -15deg, 10px, 55%);
+  margin-top: -175px;
+}
+
+#logo7 {
+  @include logoStyles(300px, -45deg, 33%, 93%);
+}
+
+#logo8 {
+  @include logoStyles(300px, 330deg, 95%, 50%);
+}
+
+@media screen and (max-width: 1200px) {
+  #background-container {
+    overflow: hidden;
+  }
+
+  #logo4,
+  #logo5,
+  #logo6,
+  #logo7,
+  #logo8 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape){
+  #logo2, #logo3 {
+    margin-top: 5%;
+  }
 }

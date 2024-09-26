@@ -1,15 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
 import "./index.scss";
 import Logo from "../../assets/images/logo.png";
 import LogoSub from "../../assets/images/sub.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUser, faEnvelope, faSuitcase, faBars, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser, faEnvelope, faSuitcase, faClose } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import BurgerMenu from "./BurgerMenu";
+import Background from "./Background";
 
-const Sidebar = () => {
-  const [showNav, setShowNav] = useState(false);
-
+const Sidebar = ({ showNav, setShowNav }) => {
   function refreshPage() {
     // if on home page, refresh page - else, display home page
     if (window.location.pathname === "/") {
@@ -18,7 +17,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="nav-container">
+    <div className={`nav-container ${showNav ? "show-nav-page" : ""}`}>
       <Link className="logo" to="/">
         <img
           src={Logo}
@@ -31,7 +30,7 @@ const Sidebar = () => {
         <img className="logo-subtitle" src={LogoSub} alt="logo subtitle" onClick={refreshPage} />
       </Link>
 
-      <nav nav className={showNav ? "mobile-show" : ""}>
+      <nav>
         <NavLink activeclassname="active" to="/" onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faHome} />
         </NavLink>
@@ -44,7 +43,6 @@ const Sidebar = () => {
         <NavLink activeclassname="active" className="contact-link" to="/contact" onClick={() => setShowNav(false)}>
           <FontAwesomeIcon icon={faEnvelope} />
         </NavLink>
-        <FontAwesomeIcon onClick={() => setShowNav(false)} icon={faClose} size="3x" className="close-icon" />
       </nav>
 
       <div className="external-links">
@@ -55,7 +53,9 @@ const Sidebar = () => {
           <FontAwesomeIcon icon={faLinkedin} className="anchor-icon" />
         </a>
       </div>
-      <FontAwesomeIcon onClick={() => setShowNav(true)} icon={faBars} size="3x" className="hamburger-icon" />
+      <BurgerMenu onClick={() => setShowNav(true)} />
+      <FontAwesomeIcon onClick={() => setShowNav(false)} icon={faClose} size="3x" className="close-icon" />
+      <Background />
     </div>
   );
 };

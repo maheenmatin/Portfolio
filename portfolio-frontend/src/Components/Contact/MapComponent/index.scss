@@ -1,0 +1,38 @@
+.map-wrap {
+  background: var(--color1);
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+.leaflet-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+  opacity: 0;
+  animation: backInRight 1s 1.2s forwards;
+}
+
+#popup {
+  width: 150px;
+  height: 25px;
+  font-size: 15px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .map-wrap {
+    float: none;
+    margin: 0;
+    width: 100%;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  .map-wrap {
+    height: 200px;
+  }
+}
+

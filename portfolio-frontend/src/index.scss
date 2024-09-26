@@ -5,8 +5,13 @@
   margin: 0;
 }
 
+html,
 body {
-  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
   overflow: hidden;
   background: var(--color1);
 
@@ -23,9 +28,8 @@ body {
   --color5: #ffffff;
   --color6: #000000;
 
-  --heading-size: 85px;
   --sidebar-width: 70px;
-  --tag-size: 20px;
+  --sidebar-height: 50px;
 
   // make text non-highlightable (excludes forms)
   -webkit-touch-callout: none; // iOS Safari
@@ -37,13 +41,6 @@ body {
 }
 
 // Fonts
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("./assets/fonts/helvetica-neu.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
 @font-face {
   font-family: "La Belle Aurore";
   src: url("./assets/fonts/LaBelleAurore.woff2") format("woff2"),
@@ -80,4 +77,23 @@ $primary-color: #f55766;
   height: 50px;
   animation: fadeOut 0.25s 0.75s;
   animation-fill-mode: forwards;
+}
+
+// Mobile
+@media screen and (max-width: 1200px) {
+  body {
+    overflow-y: visible;
+  }
+
+  .loader-active {
+    bottom: initial;
+    top: 260px;
+    left: 60px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  .loader-active {
+    top: 125px;
+  }
 }

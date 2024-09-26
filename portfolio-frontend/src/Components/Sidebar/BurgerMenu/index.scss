@@ -1,0 +1,23 @@
+@mixin lineStyle($color, $width) {
+  stroke-width: $width;
+  stroke: $color;
+  stroke-linecap: round;
+  fill: none;
+}
+
+#burgermenu-svg {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  width: 45px;
+  height: 100%;
+  display: none;
+}
+
+.burgermenu-line {
+  @include lineStyle(white, 1.5px);
+}
+
+.burgermenu-outline {
+  @include lineStyle(black, 3px);
+}

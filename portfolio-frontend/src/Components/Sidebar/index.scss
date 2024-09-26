@@ -63,7 +63,7 @@ nav a,
       display: flex;
       justify-content: center;
       align-items: center;
-      font: bold $icon-size "Helvetica Neue", sans-serif;
+      font: bold $icon-size sans-serif;
       line-height: 50px;
       position: relative;
       text-decoration: none;
@@ -136,8 +136,111 @@ nav a,
   }
 }
 
-.hamburger-icon,
-.close-icon {
+.close-icon,
+#burgermenu-svg,
+#sidebar-bg-container {
   display: none;
-  color: var(--color5);
+}
+
+// Mobile
+@media screen and (max-width: 1200px) {
+  .nav-container {
+    position: fixed;
+    width: 100vw;
+    height: var(--sidebar-height);
+
+    nav,
+    .external-links {
+      display: none;
+    }
+
+    .logo {
+      height: 100%;
+      margin-top: initial;
+
+      img {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        height: 80%;
+        width: auto;
+
+        &.logo-subtitle {
+          display: none;
+        }
+      }
+    }
+
+    #burgermenu-svg {
+      display: block;
+    }
+  }
+
+  .nav-container.show-nav-page {
+    position: absolute;
+    height: calc((var(--vh, 1vh) * 100));
+
+    .logo,
+    #burgermenu-svg {
+      display: none;
+    }
+
+    #sidebar-bg-container {
+      display: block;
+    }
+
+    .close-icon {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 2px;
+      width: 50px;
+      height: 7.5%;
+      color: white;
+    }
+
+    nav,
+    .external-links {
+      background-color: transparent !important;
+      position: absolute;
+      display: flex;
+      width: 100%;
+    }
+
+    nav {
+      top: 33%;
+      height: 40%;
+      justify-content: space-between;
+      background: var(--color3);
+    }
+
+    .external-links {
+      bottom: 25%;
+      justify-content: space-evenly;
+      flex-direction: row;
+      align-items: start;
+      background: var(--color3);
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a:after {
+      opacity: 1;
+      position: initial;
+      width: auto;
+      margin-left: 10px;
+    }
+
+    a.active {
+      color: var(--color5);
+    }
+
+    a svg {
+      opacity: 1 !important;
+    }
+  }
 }

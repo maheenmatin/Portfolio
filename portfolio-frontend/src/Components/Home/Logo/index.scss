@@ -40,3 +40,17 @@
 @keyframes drawShadow {
   @include draw(var(--color4));
 }
+
+// Mobile
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+  #logo-svg {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  #logo-svg {
+    overflow-x: hidden;
+    width: 50%;
+  }
+}

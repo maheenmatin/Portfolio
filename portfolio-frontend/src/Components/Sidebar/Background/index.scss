@@ -1,0 +1,29 @@
+@mixin bglogoStyles($size, $rotation, $x-offset, $y-offset) {
+  position: absolute;
+  inset: $x-offset 0 0 $y-offset;
+  width: $size;
+  height: $size;
+  transform: rotate($rotation);
+  opacity: 0.5;
+}
+
+#sidebar-bg-container {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#sbglogo1 {
+  @include bglogoStyles(500px, 15deg, 10px, 10px);
+  margin: -150px 0 0 -320px;
+}
+
+#sbglogo2 {
+  @include bglogoStyles(333px, -33deg, 25%, 5%);
+}
+
+#sbglogo3 {
+  @include bglogoStyles(300px, -175deg, 75%, 15%);
+}

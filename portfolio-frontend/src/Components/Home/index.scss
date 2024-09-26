@@ -30,7 +30,9 @@
     font: 400 15px sans-serif;
     letter-spacing: 4px;
     text-decoration: none;
-    float: left;
+    display: block;
+    width: fit-content;
+    white-space: nowrap;
     animation: fadeInAnimation 1s 1.8s backwards;
 
     &:hover {
@@ -41,5 +43,46 @@
 
   #colored-letter-home {
     color: var(--color4);
+  }
+
+  #job-break {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .home-container {
+    .text-zone {
+      width: 80%;
+      top: 10%;
+    }
+
+    h1 img {
+      margin: 0 0 -18px 10px;
+      width: 77px;
+    }
+
+    h2 {
+      font: 400 12px sans-serif;
+      white-space: wrap;
+      width: 100%;
+      letter-spacing: 2px;
+    }
+
+    .flat-button {
+      font: 400 12px sans-serif;
+      letter-spacing: 2.5px;
+      border-width: 2px;
+    }
+
+    #job-break {
+      display: initial;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+  .home-container {
+    padding: 5% 0;
   }
 }

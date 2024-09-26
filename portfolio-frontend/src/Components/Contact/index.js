@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import Loader from "react-loaders";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Icon } from "leaflet";
-
+import MapComponent from "./MapComponent";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 import "leaflet/dist/leaflet.css";
@@ -19,11 +17,6 @@ const Contact = () => {
       setLetterClass("text-animate-hover");
     }, 4000);
   }, []);
-
-  const customIcon = new Icon({
-    iconUrl: require("../../assets/images/mapIcon.png"), //will not work without require
-    iconSize: [50, 50],
-  });
 
   const sendMailChimpData = () => {
     const formData = {
@@ -62,7 +55,7 @@ const Contact = () => {
 
           <p>
             Feel free to reach out with any professional enquiries! I am particularly interested in internship
-            opportunities for software engineering. <span class="contact-colored-text">Let's connect!</span>
+            opportunities for software engineering. <span className="contact-colored-text">Let's connect!</span>
           </p>
 
           <div className="contact-form">
@@ -116,24 +109,17 @@ const Contact = () => {
         </div>
 
         <div className="info-map">
-          City, University of London <br />
-          Northampton Square <br />
-          London <br />
+          City, University of London
+          <br />
+          Northampton Square
+          <br />
+          London
+          <br />
           EC1V 0HB
         </div>
 
         <div className="map-wrap">
-          <MapContainer center={[51.527264, -0.10247]} zoom={16} scrollWheelZoom={true}>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[51.527264, -0.10247]} icon={customIcon}>
-              <Popup>
-                <div id="popup">Maheen studies here!</div>
-              </Popup>
-            </Marker>
-          </MapContainer>
+          <MapComponent />
         </div>
       </div>
       <Loader type="pacman" />
