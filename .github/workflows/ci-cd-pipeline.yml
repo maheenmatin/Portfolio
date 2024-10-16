@@ -22,10 +22,15 @@ jobs:
           node-version: '20.x'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd portfolio-frontend
+          npm install
+
 
       - name: Build application
-        run: npm run build
+        run: |
+          cd portfolio-frontend
+          npm run build
 
       - name: Publish
         uses: cloudflare/pages-action@v1
@@ -33,5 +38,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: portfolio
-          directory: build
+          directory: portfolio-frontend/build
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
