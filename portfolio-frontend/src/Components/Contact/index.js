@@ -54,8 +54,8 @@ const Contact = () => {
           </h1>
 
           <p>
-            Feel free to reach out with any professional enquiries! I am particularly interested in internship
-            opportunities for software engineering. <span className="contact-colored-text">Let's connect!</span>
+            Feel free to reach out with any professional enquiries! I am particularly interested in graduate
+            roles for business analysis. <span className="contact-colored-text">Let's connect!</span>
           </p>
 
           <div className="contact-form">
@@ -109,13 +109,13 @@ const Contact = () => {
         </div>
 
         <div className="info-map">
-          City, University of London
+          UCL (University College London)
           <br />
-          Northampton Square
+          Gower Street
           <br />
           London
           <br />
-          EC1V 0HB
+          WC1E 6BT
         </div>
 
         <div className="map-wrap">

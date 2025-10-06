@@ -27,17 +27,19 @@ const About = () => {
           <div className="arrow-text-pair">
             <Arrow />
             <p>
-              I'm a 3rd-year CS student at <span id="about-colored-text">City, University of London</span>. I've
-              acquired a broad range of skills, from Data Structures & Algorithms to Object-Oriented Analysis & Design.
+              I'm an MSc student at <span id="about-colored-text">UCL (University College London)</span>. I'm
+              acquiring a broad range of skills, from People & Security (GRC) to Financial Market Modelling & Analysis.
             </p>
           </div>
 
           <div className="arrow-text-pair">
             <Arrow />
             <p>
-              With two internships under my belt, I've gained valuable knowledge and experience in both
-              <span className="about-colored-text"> UI/UX engineering</span> (Figma, JavaScript, Bootstrap), and
-              <span className="about-colored-text"> quantitative research</span> (R, Python).
+              I graduated from City, St George's with 
+              <span className="about-colored-text"> First-Class Honours</span> 
+              in BSc Computer Science (76% GPA). 
+              With <span className="about-colored-text"> two internships</span> under my belt, 
+              I'm equipped to tackle real-world challenges.
             </p>
           </div>
 

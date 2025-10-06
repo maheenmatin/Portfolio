@@ -9,12 +9,12 @@ const customIcon = new Icon({
 
 const MapComponent = () => {
   return (
-    <MapContainer center={[51.527264, -0.10247]} zoom={16} scrollWheelZoom={true}>
+    <MapContainer center={[51.524776, -0.133583]} zoom={16} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[51.527264, -0.10247]} icon={customIcon}>
+      <Marker position={[51.524776, -0.133583]} icon={customIcon}>
         <Popup>
           <div id="popup">Maheen studies here!</div>
         </Popup>
